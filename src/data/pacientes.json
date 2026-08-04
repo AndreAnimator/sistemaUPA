@@ -1,0 +1,20 @@
+[
+    {
+        "nome": "Maria Silva",
+        "idade": 45,
+        "cpf": "123.456.789-09",
+        "telefone": "(11) 98765-4321",
+        "email": "maria.silva@email.com",
+        "sintomas": ["dor intensa", "febre alta"],
+        "prioridade": "urgente"
+    },
+    {
+        "nome": "João Santos",
+        "idade": 72,
+        "cpf": "987.654.321-00",
+        "telefone": "(21) 97654-3210",
+        "email": "joao.santos@email.com",
+        "sintomas": ["dificuldade respiratória grave"],
+        "prioridade": "emergencia"
+    }
+]
