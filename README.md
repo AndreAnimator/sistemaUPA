@@ -87,3 +87,6 @@ Coloquei uma propriedade de readonly para as prioridades existentes em triagem.s
 Coloquei os usuários dentro do arry pacientes pois a IA deixou vazia por algum motivo, logo estava sem uso. Pra isso, toda vez que era preciso criar um objeto do tipo Paciente eu precisei usar ... e usar type casting em prioridade.
 A IA alucionou o método buscarPorSintoma. EU mesmo tive de implementar.
 Tive de incluir "DOM" em "lib" dentro das configurações do TypeScript para poder utilizar o console.log.
+O typescript não tava conseguindo reconhecer a biblioteca de testes do node, aí mudei para o tsconfig que estava na aula bônus e tive que mudar type em package.json de commonjs para module. Removi "erasableSyntaxOnly": true,
+    "verbatimModuleSyntax": true, de tsconfig.
+Fiz uma gambiarra no arquivo triagem.test.ts misturando require com modules.
