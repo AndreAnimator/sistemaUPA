@@ -1,5 +1,5 @@
-import { Paciente, PacienteCadastro, PacienteAtualizacao, Prioridade } from "../models/types";
-import { Validators } from "../utils/validators";
+import { Paciente, PacienteCadastro, PacienteAtualizacao, Prioridade } from "../models/types.ts";
+import { Validators } from "../utils/validators.ts";
 
 export class PacienteService {
     private pacientes: Paciente[] = [];

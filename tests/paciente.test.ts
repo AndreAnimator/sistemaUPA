@@ -1,7 +1,7 @@
 import { describe, it, before, after } from "node:test";
 import assert from "node:assert"
-import { PacienteService } from "../src/services/paciente.service.js"
-import { Validators } from "../src/utils/validators.js";
+import { PacienteService } from "../src/services/paciente.service.ts"
+import { Validators } from "../src/utils/validators.ts";
 
 describe('PacienteSerrvice', () => {
     let pacienteService: PacienteService;

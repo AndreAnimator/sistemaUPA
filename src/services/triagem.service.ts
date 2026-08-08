@@ -1,5 +1,5 @@
-import { Paciente, Prioridade } from "../models/types.js";
-import { PacienteService } from "./paciente.service.js";
+import { Paciente, Prioridade } from "../models/types.ts";
+import { PacienteService } from "./paciente.service.ts";
 
 export class TriagemService {
     private filaAtendimento: Map<Prioridade, Paciente[]>;

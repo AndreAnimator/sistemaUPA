@@ -1,5 +1,5 @@
-import { Paciente, EstatisticasAtendimento, PacienteResumo, Prioridade } from "../models/types";
-import { PacienteService } from "./paciente.service";
+import { Paciente, EstatisticasAtendimento, PacienteResumo, Prioridade } from "../models/types.ts";
+import { PacienteService } from "./paciente.service.ts";
 
 export class EstatisticasService {
     constructor (private pacienteService: PacienteService) {}

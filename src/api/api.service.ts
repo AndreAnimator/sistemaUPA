@@ -1,5 +1,5 @@
-import { PacienteCadastro, Prioridade } from "../models/types";
-import Pacientes from "../data/pacientes.json"
+import { PacienteCadastro, Prioridade } from "../models/types.ts";
+import Pacientes from "../data/pacientes.json" with { type: "json" }; 
 
 export class ApiService {
     static async carregarPacientesExternos(): Promise<PacienteCadastro[]> {

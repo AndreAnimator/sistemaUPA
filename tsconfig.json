@@ -3,6 +3,7 @@
     "target": "ESNext",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
+    "esModuleInterop": true,
 
     "strict": true,
     "noEmit": true,
@@ -11,5 +12,6 @@
     "skipLibCheck": true,
     "allowImportingTsExtensions": true
   },
+  "ts-node": { "esm": true },
   "include": ["src/**/*.ts", "tests/**/*.ts"]
 }

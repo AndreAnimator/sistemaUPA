@@ -1,7 +1,7 @@
-import { PacienteService } from "./services/paciente.service";
-import { TriagemService } from "./services/triagem.service";
-import { EstatisticasService } from "./services/estatisticas.service";
-import { ApiService } from "./api/api.service";
+import { PacienteService } from "./services/paciente.service.ts";
+import { TriagemService } from "./services/triagem.service.ts";
+import { EstatisticasService } from "./services/estatisticas.service.ts";
+import { ApiService } from "./api/api.service.ts";
 
 async function main() {
     console.log("=== Sistema de Triagem - UPA ===\n");

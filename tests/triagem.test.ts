@@ -12,7 +12,7 @@ describe('TriagemService', () => {
         triagemService = new TriagemService(pacienteService);
     
         pacienteService.cadastrarPaciente({
-           nome: "Emergência",
+            nome: "Emergência",
             idade: 50,
             cpf: "529.876.543-21",
             telefone: "(11) 99999-9999",
