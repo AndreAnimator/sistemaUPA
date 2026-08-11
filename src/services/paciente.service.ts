@@ -66,8 +66,13 @@ export class PacienteService {
             return { erro: 'Paciente não encontrado' };
         }
 
+        const dadosAntigos = this.pacientes[index];
+        if(dados.sintomas && !dados.idade) dados.prioridade = this.classificarPrioridade(dados.sintomas, dadosAntigos.idade) as Prioridade;
+        else if (dados.idade && !dados.sintomas) dados.prioridade = this.classificarPrioridade(dadosAntigos.sintomas, dados.idade) as Prioridade;
+        else if (dados.idade && dados.sintomas) dados.prioridade = this.classificarPrioridade(dadosAntigos.sintomas, dadosAntigos.idade) as Prioridade;
+
         this.pacientes[index] = {
-            ...this.pacientes[index],
+            ...dadosAntigos,
             ...dados
         };
 

@@ -14,7 +14,7 @@ describe('PacienteSerrvice', () => {
         const resultado = pacienteService.cadastrarPaciente({
             nome: "Teste Silva",
             idade: 30,
-            cpf: "529.876.543-21",
+            cpf: "529.876.543-21", // esse cpf tá errado
             telefone: "(11) 98765-4321",
             email: "teste@email.com",
             sintomas: ["febre", "tosse"],
