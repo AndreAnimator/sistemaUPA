@@ -14,7 +14,7 @@ describe('PacienteSerrvice', () => {
         const resultado = pacienteService.cadastrarPaciente({
             nome: "Teste Silva",
             idade: 30,
-            cpf: "529.876.543-21", // esse cpf tá errado
+            cpf: "406.640.308-58", // esse cpf tá errado
             telefone: "(11) 98765-4321",
             email: "teste@email.com",
             sintomas: ["febre", "tosse"],
@@ -40,7 +40,7 @@ describe('PacienteSerrvice', () => {
     });
 
     it('Deve validar CPF corretamente', () => {
-        assert.strictEqual(Validators.validarCPF("529.876.543-21"), true);
+        assert.strictEqual(Validators.validarCPF("406.640.308-58"), true);
         assert.strictEqual(Validators.validarCPF("111.111.111-11"), false);
         assert.strictEqual(Validators.validarCPF("123.456.789-00"), false);
     });

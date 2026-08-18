@@ -97,4 +97,10 @@ export class EstatisticasService {
 
         return tempoTotal / pacientes.length / (1000 * 60);
     }
+
+    buscarrPorSintoma(sintoma: string): Paciente[] | {erro: string} {
+        let pacientes = this.pacienteService.listarPacientes().filter(p => sintoma in p.sintomas)
+        if(!pacientes) return {erro: 'Não há pacientes com esse sintoma'};
+        return pacientes;
+    }
 }

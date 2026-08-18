@@ -5,24 +5,7 @@ import { ApiService } from "./api/api.service.ts";
 import { Paciente, PacienteAtualizacao, PacienteCadastro, Prioridade } from "./models/types.ts";
 import { Validators } from "./utils/validators.ts";
 import * as readline from "node:readline";
-import { Readline } from "node:readline/promises";
 import { resolve } from "node:path";
-
-/*
-"\n1. Cadastrar pacientes",
-"\n2. Carregar pacientes externos",
-"\n3. Listar Pacientes",
-"\n4. Consultar Paciente",
-"\m5; Atualizar Paciente",
-"\n6. Obter Distribuição Por Idade",
-"\n7. obterProximoPaciente",
-"\n8. atualizarPrioridade",
-"\n9. obterStatusFila",
-"\n10. Gerar Estatísticas",
-"\n11. Gerar Relatório Final",
-"\n12. Enviar Relatório para servidor",
-"\n13. Fechar"
-*/
 
 function askQuestion(query: string, rl: readline.Interface) {
     return new Promise(resolve => rl.question(query, ans => {
@@ -153,20 +136,7 @@ async function consultarPaciente(ps: PacienteService, rl: readline.Interface){
 }
 
 async function atualizarPaciente(ps: PacienteService, rl: readline.Interface){
-    /**
-     * let paciente = {
-        id: "",
-        nome: "",
-        idade: 0,
-        cpf: "",
-        telefone: "",
-        email: "",
-        sintomas: [""],
-        prioridade: 'nao-urgente' as Prioridade,
-        atendido: Boolean
-    }
-    */
-   let paciente = {} as PacienteAtualizacao;
+    let paciente = {} as PacienteAtualizacao;
    
     let id = await askQuestion('informe o id do paciente que deseja alterar', rl) as string;
     let question: string = "\nQual dado deseja alterar nesse paciente?\n\n1. nome\n2. idade\n3.cpf\n4. telefone\n5. email\n6. sintomas\n7. Foi atendido? \n\n Informe um número de 1 à 7: ";
@@ -208,10 +178,7 @@ async function atualizarPaciente(ps: PacienteService, rl: readline.Interface){
 }
 
 async function atualizarPrioridade(ts: TriagemService, rl: readline.Interface){
-    /**
-     'emergencia' | 'muito-urgente' | 'urgente' | 'pouco-urgente' | 'nao-urgente';
-    */
-   let prioridade = {} as Prioridade;
+    let prioridade = {} as Prioridade;
    
     let id = await askQuestion('informe o id do paciente que deseja alterar a prioridade: ', rl) as string;
     // tava pensando em fazer um enum pra prioridade
@@ -244,6 +211,11 @@ async function atualizarPrioridade(ts: TriagemService, rl: readline.Interface){
     return;
 }
 
+async function buscarPorSintoma(es: EstatisticasService, rl: readline.Interface) {
+    let answer = await askQuestion('Digite o sintoma: ', rl) as string;
+    console.log(es.buscarrPorSintoma(answer));
+}
+
 async function main() {
     console.log("=== Sistema de Triagem - UPA ===\n");
 
@@ -258,7 +230,6 @@ async function main() {
         output: process.stdout
     })
 
-    // código meio javascript mas é culpa do readline, e acontece tudo em realtime dps do ts ser transpilado para js ent tanto faz
     var opcoes = async function () {
         console.log("\n1. Cadastrar pacientes",
             "\n2. Carregar pacientes externos",
@@ -266,9 +237,9 @@ async function main() {
             "\n4. Consultar Paciente",
             "\n5; Atualizar Paciente",
             "\n6. Obter Distribuição Por Idade",
-            "\n7. obterProximoPaciente",
-            "\n8. atualizarPrioridade",
-            "\n9. obterStatusFila",
+            "\n7. Obter Próximo Paciente",
+            "\n8. Atualizar Prioridade",
+            "\n9. Obter Status Fila",
             "\n10. Gerar Estatísticas",
             "\n11. Gerar Relatório Final",
             "\n12. Enviar Relatório para servidor",
@@ -348,6 +319,10 @@ async function main() {
                 }
                 opcoes();
                 break;
+            case '13':
+                buscarPorSintoma(estatisticasService, rl);
+                opcoes();
+                break;
             default:
                 console.log("\nOpção não identificada");
                 opcoes();
@@ -357,18 +332,6 @@ async function main() {
     }
 
     opcoes();
-    
-    
-
-    
-
-
-    /*
-    console.log("\n5. Buscando pacientes por sintoma...");
-    const pacientesComFebre = estatisticasService.buscarPorSintoma('febre');
-    
-    não fiz esse método ainda
-    */
 }
 
 main().catch(console.error);

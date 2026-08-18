@@ -14,7 +14,7 @@ describe('TriagemService', () => {
         pacienteService.cadastrarPaciente({
             nome: "Emergência",
             idade: 50,
-            cpf: "529.876.543-21",
+            cpf: "406.640.308-58",
             telefone: "(11) 99999-9999",
             email: "emergencia@teste.com",
             sintomas: ["parada cardíaca"],
@@ -24,7 +24,7 @@ describe('TriagemService', () => {
         pacienteService.cadastrarPaciente({
             nome: "Normal",
             idade: 25,
-            cpf: "987.654.321-00",
+            cpf: "801.734.358-23",
             telefone: "(11) 98888-8888",
             email: "normal@teste.com",
             sintomas: ["tosse"],
@@ -42,7 +42,7 @@ describe('TriagemService', () => {
 
     it('Deve atualizar prioridade do paciente', () => {
         const paciente = pacienteService.listarPacientes();
-        const pacienteNormal = paciente.find(p => p.nome === 'normal');
+        const pacienteNormal = paciente.find(p => p.nome === 'Normal');
     
         assert.ok(pacienteNormal);
 
